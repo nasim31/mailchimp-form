@@ -12,9 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check user has accepted to sign up to the newsletter
     if (isset($_POST['newsletter'])) {
         // Set API credentials and build URL
-        $data_center = 'DATA_CENTER_HERE';
-        $audience_id = 'AUDIENCE_ID_HERE';
-        $api_key = 'API_KEY_HERE';
+        $data_center = 'us8';
+        $audience_id = 'c0b656b620';
+        $api_key = '83a5301e9d3e4e6ba5aee4309fdf318a-us8';
         $url = 'https://' . $data_center . '.api.mailchimp.com/3.0/lists/' . $audience_id . '/members';
 
         // Build user details array to send
