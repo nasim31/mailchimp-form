@@ -5,9 +5,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Send user back to the form
         header('Location: /');
     }
-	echo $_POST["name"];
-	echo $_POST["email"];
-	echo $_POST["message"];
 	
 	// Set default to handle if user wants to subscribe or not
 	$subscribed = false;
@@ -26,7 +23,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             'status' => 'subscribed'
         ];
         $user_details = json_encode($user_details);
-		echo $_POST["newsletter"];
 		// Send POST request with cURL
 		$ch = curl_init($url);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -41,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 		$result = curl_exec($ch);
 		$result_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 		curl_close($ch);
-		echo $result_code;
+
         if ($result_code === 200) {
 			$subscribed = true;
       	}
